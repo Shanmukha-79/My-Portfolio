@@ -1,0 +1,410 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    /* Galaxy background image */
+    background-image: url('https://www.nasa.gov/sites/default/files/thumbnails/image/hubble_ngc4622_0.jpg'); /* Placeholder URL */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #ffffff; /* White font color for visibility */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow for better readability */
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Moving black hole effect */
+body::before {
+    content: '';
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.5) 50%, transparent 70%); /* Black hole effect */
+    border-radius: 50%;
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.2), /* White glow */
+              0 0 40px 10px rgba(255, 0, 0, 0.3), /* Subtle rainbow border (red) */
+              0 0 60px 15px rgba(255, 165, 0, 0.3), /* Orange */
+              0 0 80px 20px rgba(255, 255, 0, 0.3), /* Yellow */
+              0 0 100px 25px rgba(0, 128, 0, 0.3), /* Green */
+              0 0 120px 30px rgba(0, 0, 255, 0.3), /* Blue */
+              0 0 140px 35px rgba(75, 0, 130, 0.3), /* Indigo */
+              0 0 160px 40px rgba(238, 130, 238, 0.3); /* Violet */
+    animation: moveBlackHole 20s linear infinite; /* Animation for movement */
+    z-index: -1; /* Behind content */
+}
+
+/* Black hole animation */
+@keyframes moveBlackHole {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(50vw, 20vh);
+    }
+    50% {
+        transform: translate(80vw, 60vh);
+    }
+    75% {
+        transform: translate(30vw, 80vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff; /* White font color */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00d4ff; /* Light cyan for visibility */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffeb3b; /* Bright yellow on hover */
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    padding: 120px 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+.welcome-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ffffff; /* White font color */
+}
+
+.welcome-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #ffffff; /* White font color */
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #00d4ff; /* Light cyan */
+    color: #ffffff; /* White font color */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffeb3b; /* Bright yellow on hover */
+    transform: scale(1.05);
+}
+
+.cta-button:active {
+    transform: scale(0.95);
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+.projects-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #ffffff; /* White font color */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    margin: 15px 0 10px;
+    font-size: 20px;
+    color: #ffffff; /* White font color */
+}
+
+.project-card p {
+    color: #ffffff; /* White font color */
+}
+
+/* About Me Section */
+.about-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+.about-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #ffffff; /* White font color */
+}
+
+.about-card {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff; /* White font color */
+}
+
+.about-card p {
+    color: #ffffff; /* White font color */
+}
+
+/* Internship Section */
+.internship-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+.internship-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #ffffff; /* White font color */
+}
+
+.internship-card {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.internship-card:hover {
+    transform: translateY(-5px);
+}
+
+.internship-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff; /* White font color */
+}
+
+.internship-card p {
+    color: #ffffff; /* White font color */
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+.contact-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #ffffff; /* White font color */
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #ffffff; /* White font color */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #00d4ff; /* Light cyan border */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+    color: #ffffff; /* White font color */
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ffeb3b; /* Bright yellow on focus */
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-details {
+    flex: 1;
+    max-width: 300px;
+    text-align: left;
+    color: #ffffff; /* White font color */
+}
+
+.contact-details h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff; /* White font color */
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+    color: #ffffff; /* White font color */
+}
+
+.form-message {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff; /* White font color */
+}
+
+/* Social Media Section */
+.social-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+.social-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #ffffff; /* White font color */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #00d4ff; /* Light cyan */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ffeb3b; /* Bright yellow on hover */
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    color: #ffffff; /* White font color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .welcome-section {
+        padding: 60px 20px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    body::before {
+        width: 150px;
+        height: 150px;
+    }
+}
