@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B. Shanmukh Sarma Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">B. Shanmukh Sarma Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#social">Social Media</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section id="home" class="welcome-section">
+        <h1>B. Shanmukh Sarma - My Portfolio</h1>
+        <p>Showcasing my expertise in digital crafting, web development, and innovative solutions.</p>
+        <a href="#contact" class="cta-button">Get in Touch</a>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2>Our Work</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Contact Form</h3>
+                <p>Developed a responsive contact form with required fields for user interaction.</p>
+            </div>
+            <div class="project-card">
+                <h3>Password Guide</h3>
+                <p>Created a comprehensive guide to help users understand and create secure passwords.</p>
+            </div>
+            <div class="project-card">
+                <h3>Data Visualization Datasheet</h3>
+                <p>Designed a datasheet for effective data visualization to present complex data clearly.</p>
+            </div>
+            <div class="project-card">
+                <h3>Stationary Store Web Design</h3>
+                <p>Built a user-friendly web design for a stationary store with an intuitive interface.</p>
+            </div>
+        </div>
+        <a href="#" class="cta-button">View All Projects</a>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <h2>Meet Our Team</h2>
+        <div class="about-card">
+            <h3>B. Shanmukh Sarma</h3>
+            <p>I am a fresher with no prior experience but an enthusiastic person eager to learn new things. I am a fast learner with basic knowledge of Python, Java, and web development.</p>
+        </div>
+    </section>
+
+    <!-- Internship Section -->
+    <section id="internship" class="internship-section">
+        <h2>Internship</h2>
+        <div class="internship-card">
+            <h3>Fuel Cell Voltage Measuring using IoT Application Blynk</h3>
+            <p>I got certified from SRMIST as an intern and worked in the Renewable Energy Lab, where I developed a project to measure fuel cell voltage using the IoT application Blynk.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <form class="contact-form" action="https://formspree.io/f/mzzebwyv" method="POST">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="contact-number">Contact Number *</label>
+                <input type="tel" id="contact-number" name="contact-number" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+
+                <!-- Hidden fields for Formspree -->
+                <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thanks">
+                <input type="text" name="_gotcha" style="display:none"> <!-- Honeypot for spam protection -->
+
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+            <div class="contact-details">
+                <h3>Contact Details</h3>
+                <p>Email: bshanmukhasarma@gmail.com</p>
+                <p>Phone: 6302118590</p>
+                <p>Address: Vijayawada, India</p>
+            </div>
+        </div>
+        <div id="form-message" class="form-message"></div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social" class="social-section">
+        <h2>Connect With Me</h2>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/b-shanmukha-sarma-99878626a/" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 B. Shanmukh Sarma. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Form submission handling (client-side feedback)
+        const form = document.querySelector('.contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default form submission
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+                    formMessage.style.color = '#ffffff';
+                    form.reset();
+                } else {
+                    const errorData = await response.json();
+                    formMessage.textContent = `Error sending message: ${errorData.error || 'Please try again later.'}`;
+                    formMessage.style.color = 'red';
+                }
+            } catch (error) {
+                formMessage.textContent = `Error sending message: ${error.message || 'Please try again later.'}`;
+                formMessage.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
